@@ -8,10 +8,12 @@ def create_window():
     window.title("TextEditor")
     window.geometry("800x600")
 
-    text_area = tk.Text(window)
-    text_area.pack(fill="both", expand=True)
+    textArea = tk.Text(window)
+    textArea.pack(fill="both", expand=True)
 
-    menu_bar = create_menu(window, text_area)
+    window.current_file = None
+
+    menu_bar = create_menu(window, textArea)
 
     window.config(menu=menu_bar)
 
