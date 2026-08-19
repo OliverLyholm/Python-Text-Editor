@@ -1,5 +1,7 @@
 import tkinter as tk
 
+import functions.py
+
 window = tk.Tk()
 window.title("TextEditor")
 window.geometry("800x600")
