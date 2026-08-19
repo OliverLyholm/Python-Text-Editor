@@ -22,6 +22,8 @@ def open_file(window, textArea):
     textArea.insert("1.0", contents)
 
     window.current_file = filePath
+    window.hasUnsavedchanges = False
+    textArea.edit_modified(False)
 
 # save file as function
 def saveAsFile(window, textArea):
@@ -54,11 +56,14 @@ def saveFile(filePath, textArea, window):
 
     window.hasUnsavedChanges= False
 
+    return True
+
 # save function
 def save(window, textArea):
      if window.current_file is None:
           saveAsFile(window, textArea)
           return
+     
      saveFile(window.current_file, textArea, window)
 
      return True
@@ -90,7 +95,7 @@ def closeApp(window, textArea):
      elif answer is False:
           window.destroy()
 
-# create new function
+# create new File function
 def newFile(window, textArea):
      
      if not window.hasUnsavedChanges:
@@ -114,6 +119,8 @@ def newFile(window, textArea):
 
      textArea.delete("1.0", tk.END)
      window.hasUnsavedChanges = False
+     textArea.edit_modified(False)
+     window.current_file = None
 
 
      

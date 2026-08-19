@@ -1,9 +1,7 @@
 import tkinter as tk
 
 from ui.menu import create_menu
-from functions.functions import textChanged
-from functions.functions import closeApp
-
+from functions.functions import textChanged, closeApp
 
 def create_window():
     window = tk.Tk()
