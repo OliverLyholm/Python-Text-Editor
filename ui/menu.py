@@ -16,22 +16,26 @@ def create_menu(window, textArea):
 
     file_menu.add_command(
         label="New",
-        command=lambda: newFile(window, textArea)
+        command=lambda: newFile(window, textArea),
+        accelerator="Ctrl+N"
     )
 
     file_menu.add_command(
         label="Open",
-        command=lambda: open_file(window, textArea)
+        command=lambda: open_file(window, textArea),
+        accelerator="Ctrl+O"
     )
 
     file_menu.add_command(
         label="Save",
-        command=lambda: save(window, textArea)
+        command=lambda: save(window, textArea),
+        accelerator="Ctrl+S"
     )
 
     file_menu.add_command(
         label="Save As",
-        command=lambda: saveAsFile(window, textArea)
+        command=lambda: saveAsFile(window, textArea),
+        accelerator="Ctrl+Alt+S"
     )
 
     menu_bar.add_cascade(
