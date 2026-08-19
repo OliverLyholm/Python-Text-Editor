@@ -1,2 +1,5 @@
 *.pyc
 __init__.py
+*.spec
+build
+dist
