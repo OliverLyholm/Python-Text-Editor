@@ -1,10 +1,11 @@
 import tkinter as tk
 
-from FileManager.functions import (
+from functions.functions import (
     open_file,
     save,
     saveFile,
-    SaveAsFile
+    saveAsFile,
+    newFile
 )
 
 
@@ -14,7 +15,8 @@ def create_menu(window, textArea):
     file_menu = tk.Menu(menu_bar, tearoff=0)
 
     file_menu.add_command(
-        label="New"
+        label="New",
+        command=lambda: newFile(window, textArea)
     )
 
     file_menu.add_command(

@@ -1,6 +1,8 @@
 import tkinter as tk
 
 from ui.menu import create_menu
+from functions.functions import textChanged
+from functions.functions import closeApp
 
 
 def create_window():
@@ -12,9 +14,20 @@ def create_window():
     textArea.pack(fill="both", expand=True)
 
     window.current_file = None
+    window.hasUnsavedChanges = False
+
+    textArea.bind(
+        "<<Modified>>",
+        lambda event: textChanged(textArea, window)
+    )
 
     menu_bar = create_menu(window, textArea)
 
     window.config(menu=menu_bar)
+
+    window.protocol(
+        "WM_DELETE_WINDOW",
+        lambda: closeApp(window, textArea)
+    )
 
     return window
